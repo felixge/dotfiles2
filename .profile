@@ -31,10 +31,11 @@ eval "$(direnv hook bash)"
 # postgres app cli tools
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
+# avoids wrong locale setting due to using german regional setting
 export LANG="en_US.UTF-8"
-
-# secrets
-[[ -s "$HOME/.profile_secret" ]] && source "$HOME/.profile_secret"
 
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
+
+# secrets
+source "$HOME/.profile_secret"
