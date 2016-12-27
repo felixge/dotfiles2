@@ -95,12 +95,6 @@ set shiftwidth=2
 set list
 au BufEnter * set listchars=tab:▸\ ,eol:¬
 
-" ========== POWERLINE PLUGIN =========
-" load powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
 " ========== VIM-GO PLUGIN ==========
 let g:go_fmt_command = "goimports"
 au BufEnter *.go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
