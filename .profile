@@ -39,3 +39,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 # secrets
 source "$HOME/.profile_secret"
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
