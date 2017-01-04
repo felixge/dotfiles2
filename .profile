@@ -13,11 +13,6 @@ export EDITOR='vim'
 export GOPATH="$HOME/code/go"
 export PATH="$HOME/code/go/bin:$PATH"
 
-# deal with apple bug causing annoying direnv effects, see
-# http://www.openradar.me/22807197
-export _LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-export _DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
-
 # prompt
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWCOLORHINTS=true
