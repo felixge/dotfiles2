@@ -35,5 +35,10 @@ export PATH="/usr/local/sbin:$PATH"
 # secrets
 source "$HOME/.profile_secret"
 
-# autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# fasd
+eval "$(fasd --init auto)"
+alias j='fasd_cd -d'
+alias jo='fasd -e open -d'
+
+# other aliases
+alias h='sudo vim /etc/hosts'
