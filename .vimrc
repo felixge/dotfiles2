@@ -104,6 +104,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_go_go_build_args="-o /tmp"
 let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers= ["go"]
+let g:syntastic_python_checkers = ["python"]
 
 " ========= NERDTREE PLUGIN ======
 " close NERDtree when selecting a file
@@ -128,3 +129,8 @@ let g:vitality_fix_cursor = 0
 " ========= AIRLINE PLUGIN ======
 let g:airline_theme='light'
 let g:airline_powerline_fonts = 1
+
+" ========= ACK PLUGIN ======
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
