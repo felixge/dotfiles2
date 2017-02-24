@@ -42,3 +42,7 @@ alias jo='fasd -e open -d'
 
 # other aliases
 alias h='sudo vim /etc/hosts'
+alias jour='vim ~/Documents/Journal/$(date +'%Y-%m-%d.md')'
+
+# anaconda
+export PATH="/Users/felix/anaconda/bin:$PATH"
