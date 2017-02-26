@@ -2,6 +2,9 @@
 export HISTFILESIZE=
 export HISTSIZE=
 
+# prefer homebrew bins
+export PATH="/usr/local/bin:$PATH"
+
 # editor
 export EDITOR='vim'
 
