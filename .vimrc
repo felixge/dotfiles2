@@ -70,6 +70,8 @@ au FileType go nmap <Leader>h <Plug>(go-doc)
 au FileType go nmap <Leader>a :GoAlternate<CR>
 " highlight same identifiers
 au FileType go nmap <Leader>s :GoSameIdsAutoToggle<CR>
+" python goto definition
+au FileType python nmap gd :YcmCompleter GoTo<CR>
 nmap <Leader>e :ll<CR>
 " toggle nerd tree
 nnoremap <Leader>n :NERDTreeToggle<CR>
@@ -134,3 +136,7 @@ let g:airline_powerline_fonts = 1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+
+" ======== YOUCOMPLETEME PLUGIN ======
+let g:ycm_python_binary_path='python3'
