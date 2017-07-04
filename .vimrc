@@ -19,8 +19,13 @@ set nowritebackup
 set noswapfile
 " allow mouse usage in terminal vim
 set mouse=a
-" some auto-complete stuff
-set completeopt=menuone,longest,preview
+" and make sure mouse scrolling actually works
+" https://stackoverflow.com/questions/32103591/vim-cant-scroll-in-iterm2
+if has("mouse_sgr")
+  set ttymouse=sgr
+else
+  set ttymouse=xterm2
+end
 " use bash because plugins expect it
 set shell=bash
 " enable status line
@@ -37,6 +42,9 @@ autocmd FocusLost * silent! :wa
 autocmd TabLeave * silent! :wa
 " per project vimrc
 set exrc
+" better wrapping with indention
+set breakindent
+set showbreak=⌙
 
 " ========= STYLE =========
 " enable syntax highlighting
@@ -72,6 +80,8 @@ au FileType go nmap <Leader>a :GoAlternate<CR>
 au FileType go nmap <Leader>s :GoSameIdsAutoToggle<CR>
 " python goto definition
 au FileType python nmap gd :YcmCompleter GoTo<CR>
+" c goto definition
+au FileType c nmap gd :YcmCompleter GoTo<CR>
 nmap <Leader>e :ll<CR>
 " toggle nerd tree
 nnoremap <Leader>n :NERDTreeToggle<CR>
@@ -81,11 +91,18 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>v :e ~/.vimrc<CR>
 " jump to current location list entry (errror)
 nmap <Leader>e :ll<CR>
-" tab navigation
-nmap <Esc>[1;9D :tabprev<CR>
-nmap <Esc>[1;9C :tabnext<CR>
-nmap ∑ :tabclose<CR>
+" alt+t
 nmap † :tabnew<CR>
+" alt+w
+nmap ∑ :tabclose<CR>
+" alt+[
+nmap “ :tabprev<CR>
+" alt+]
+nmap ‘ :tabnext<CR>
+" alt+shift+[
+nmap ’ :+tabmove<CR>
+" alt+shift+]
+nmap ” :-tabmove<CR>
 
 " ========= TABS VS SPACES =========
 set expandtab
@@ -138,5 +155,7 @@ if executable('ag')
 endif
 
 
-" ======== YOUCOMPLETEME PLUGIN ======
+" ======== YOU COMPLETE ME PLUGIN ======
 let g:ycm_python_binary_path='python3'
+let g:ycm_key_list_select_completion = [''] " <TAB> causes snipmate to fail
+let g:ycm_confirm_extra_conf=0

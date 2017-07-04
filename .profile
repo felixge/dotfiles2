@@ -23,6 +23,11 @@ export GIT_PS1_SHOWUPSTREAM=verbose
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 PROMPT_COMMAND='__git_ps1 "" "\W \[\e[0;31m\]⌁\[\e[0m\]\[\e[0m\] " "(%s) "'
 
+# fasd
+eval "$(fasd --init auto)"
+alias j='fasd_cd -d'
+alias jo='fasd -e open -d'
+
 # direnv
 eval "$(direnv hook bash)"
 
@@ -35,13 +40,11 @@ export LANG="en_US.UTF-8"
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
+# my own tools
+export PATH="/Users/felixge/code/felix-utils:$PATH"
+
 # secrets
 source "$HOME/.profile_secret"
-
-# fasd
-eval "$(fasd --init auto)"
-alias j='fasd_cd -d'
-alias jo='fasd -e open -d'
 
 # other aliases
 alias h='sudo vim /etc/hosts'

@@ -1,5 +1,6 @@
 [alias]
 	ci = commit
+	cp = cherry-pick
 	st = status
 	co = checkout
 	up = pull --rebase
